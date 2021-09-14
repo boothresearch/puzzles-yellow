@@ -1,2 +1,7 @@
 def is_isogram(string):
-    pass
+    listed = list(string)
+
+    lookup = dict{}
+    for char in string:
+
+    return
