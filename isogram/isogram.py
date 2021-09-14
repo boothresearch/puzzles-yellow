@@ -1,16 +1,16 @@
 def is_isogram(string):
     # Turn ths string into a list so that we can iterate over it
-    listed = list(string)
+    listed = list(string.lower())
 
-    # initializing a dictionary, against which we can check if a character has been seen before
+    # initializing a dictionary, against which we can check if a character has been seen before. Try to keep to O(n) time.
     lookup = dict()
     
     # iterate over all elements in the string-list
-    for char in string:
-        # if a character is a alphanumeric we test to see if it's in the dict...e
+    for char in listed:
+        # if a character is a alphanumeric we test to see if it's in the dict...
         if char.isalpha() == True:
-            
-            if lookup[char] == True:
+
+            if char in lookup:
                 # We've already seen this character before. NOT AN ISOGRAM. Return false.
                 return False
             else:
@@ -22,7 +22,4 @@ def is_isogram(string):
             continue
 
     # We made it to the end of the list-string without seeing a repeated character. IT IS AN ISOGRAM    
-    print('true')
-    return lookup
-
-print(is_isogram('test'))
+    return True
